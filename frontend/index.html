@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task Manager</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-4">
+  <div class="max-w-4xl mx-auto">
+    
+    <div class="flex items-center justify-between mb-6">
+      <h1 class="text-3xl font-bold text-gray-800">Task Manager</h1>
+      <button id="logoutBtn" class="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded">Logout</button>
+    </div>
+
+    <div class="flex justify-end mb-4">
+        <a href="createTask.html">
+            <button class="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded shadow">
+              + Create Task
+            </button>
+        </a>
+    </div>
+
+    <!-- Dynamic Task List -->
+    <div id="taskList" class="space-y-4">
+      <!-- Tasks will be injected here using JS -->
+    </div>
+
+  </div>
+
+
+  <script src="js/logout.js"></script>
+  <script src="js/task.js"></script> 
+  <script src="js/timer.js"></script>
+</body>
+</html>

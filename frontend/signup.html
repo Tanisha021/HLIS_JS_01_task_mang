@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+    <div class="bg-white p-8 rounded-lg shadow-lg w-96">
+        <h2 class="text-2xl font-semibold text-center mb-4">Sign Up</h2>
+
+        <form id="signupForm" class="space-y-4">
+            <!-- Username -->
+            <div>
+                <label class="block font-medium">Username</label>
+                <input type="text" id="user_name" name="user_name" required 
+                    class="w-full border rounded-lg p-2 focus:ring focus:ring-blue-300">
+            </div>
+
+            <!-- Email -->
+            <div>
+                <label class="block font-medium">Email</label>
+                <input type="email" id="email_id" name="email_id" required 
+                    class="w-full border rounded-lg p-2 focus:ring focus:ring-blue-300">
+            </div>
+
+            <!-- Password -->
+            <div>
+                <label class="block font-medium">Password</label>
+                <input type="password" id="password_" name="password_" required minlength="8"
+                    class="w-full border rounded-lg p-2 focus:ring focus:ring-blue-300">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="register" class="w-full bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600">
+                Sign Up
+            </button>
+        </form>
+
+        <!-- Success & Error Messages -->
+        <p id="message" class="text-center mt-4 font-medium"></p>
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
