@@ -10,7 +10,6 @@ const customerRoute = (app) => {
     app.post("/v1/user/manage-timer", User.manageTimer);
     
     app.post("/v1/user/logout", User.logout);
-    app.post("/v1/user/delete", User.delete);
 
 };
 

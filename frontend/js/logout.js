@@ -32,11 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if (response.ok) {
                 messageElement.textContent = "Logout successful!";
                 messageElement.style.color = "green";
-
-                // Remove user data from localStorage
                 localStorage.removeItem("user");
 
-                // Redirect to login page after a short delay
                 setTimeout(() => {
                     window.location.href = "login.html";
                 }, 1000);

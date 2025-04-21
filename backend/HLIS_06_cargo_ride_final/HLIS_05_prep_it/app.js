@@ -16,9 +16,6 @@ app.use(express.text());
 app.use(bodyParser.urlencoded({ extended: true }));
 const validator = require("./middleware/validators");
 const headerAuth = require("./middleware/header-auth");
-const api_doc = require("./modules/v1/Api_document/route");
-
-app.use('/api-doc', api_doc);
 
 app.use(validator.extractHeaderLanguage);
 app.use(headerAuth.validateApiKey);

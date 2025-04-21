@@ -83,13 +83,6 @@ class UserModel {
                 };
             }
 
-            // if(task[0].status == 'completed' && (action == 'start' || action == 'pause'|| (action == 'submit'))) {
-            //     return {
-            //         code: response_code.OPERATION_FAILED,
-            //         message: t('task_already_completed')
-            //     };
-            // }
-
             if(action === 'pause' || action === 'submit') {
                 const checkActive = `SELECT * FROM tbl_timers WHERE task_id=? AND status='inprogress' ORDER BY timer_id DESC LIMIT 1`;
                 const [activeTimer] = await database.query(checkActive, [task_id]);
@@ -118,9 +111,11 @@ class UserModel {
                     
                         const getTaskName = `SELECT title FROM tbl_tasks WHERE task_id = ?`;
                         const [taskInfo] = await database.query(getTaskName, [runningTaskId]);
-                        
+                        console.log("----------------------")
+                        console.log(taskInfo);
                         const taskName = taskInfo.length > 0 ? taskInfo[0].title : `Task #${runningTaskId}`;
-                        
+                        console.log(taskName);
+                        console.log("----------------------")
                         return {
                             code: response_code.BAD_REQUEST,
                             message: t('another_timer_running', { taskName: taskName }),
@@ -214,33 +209,6 @@ class UserModel {
                 code: response_code.OPERATION_FAILED,
                 message: t('some_error_occurred'),
                 data: error.message
-            };
-        }
-    }
-
-
-    async delete(request_data, user_id) {
-        try {
-            console.log(user_id);
-            const queries = [
-                `UPDATE tbl_user SET is_deleted = 1, is_active = 0, is_login = 0 WHERE user_id =${user_id}`,
-            ];
-
-            for (const query of queries) {
-                await database.query(query, [user_id]);
-            }
-
-            return {
-                code: response_code.SUCCESS,
-                message: "ACCOUNT DELETED SUCCESSFULLY"
-            };
-
-        } catch (error) {
-            console.log(user_id);
-            console.log(error);
-            return {
-                code: response_code.OPERATION_FAILED,
-                message: error
             };
         }
     }
